@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'app_home_screen.dart';
 import 'app_pages.dart';
 import '../models/recipe.dart';
+import '../features/onboard/onboard_screen.dart';
 import '../features/home/recipe_details_page.dart';
 import '../features/home/view_all_page.dart';
 import '../features/favorite/favorite_page.dart';
@@ -12,9 +13,15 @@ import '../features/my_plan/my_plan_page.dart';
 import '../features/setting/setting_page.dart';
 import '../features/home/home_page.dart';
 
-final GoRouter router = GoRouter(
-  initialLocation: Pages.home.toPath(),
+GoRouter router(bool showOnboarding) => GoRouter(
+  initialLocation:
+      showOnboarding ? Pages.onboarding.toPath() : Pages.home.toPath(),
   routes: [
+    GoRoute(
+      name: Pages.onboarding.toPathName(),
+      path: Pages.onboarding.toPath(),
+      builder: (context, state) => OnboardScreen(),
+    ),
     ShellRoute(
       builder: (context, state, child) => AppHomeScreen(child: child),
       routes: [

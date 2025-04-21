@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-enum Pages { home, favorites, plan, settings, recipes, recipeDetails }
+enum Pages {
+  onboarding,
+  home,
+  favorites,
+  plan,
+  settings,
+  recipes,
+  recipeDetails,
+}
 
 extension PagesExtension on Pages {
   String toPath({bool isSubRoute = false}) {
