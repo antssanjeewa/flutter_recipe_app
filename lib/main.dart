@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => QuantityProvider()),
       ],
       child: MaterialApp.router(
-        routerConfig: router(true), // todo
+        routerConfig: router(false), // todo
         debugShowCheckedModeBanner: false,
       ),
     );

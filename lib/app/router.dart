@@ -15,12 +15,12 @@ import '../features/home/home_page.dart';
 
 GoRouter router(bool showOnboarding) => GoRouter(
   initialLocation:
-      showOnboarding ? Pages.onboarding.toPath() : Pages.home.toPath(),
+      showOnboarding ? Pages.onboarding.toPath() : Pages.plan.toPath(),
   routes: [
     GoRoute(
       name: Pages.onboarding.toPathName(),
       path: Pages.onboarding.toPath(),
-      builder: (context, state) => OnboardScreen(),
+      builder: (context, state) => const OnboardScreen(),
     ),
     ShellRoute(
       builder: (context, state, child) => AppHomeScreen(child: child),
