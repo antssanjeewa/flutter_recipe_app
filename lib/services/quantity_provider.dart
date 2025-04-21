@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+class QuantityProvider extends ChangeNotifier {
+  int _currentNumber = 1;
+  List<double> _baseIngredientAmount = [];
+
+  int get currentNumber => _currentNumber;
+
+  void setBaseIngredientAmounts(List<double> amounts) {
+    _baseIngredientAmount = amounts;
+    notifyListeners();
+  }
+
+  List<String> get updateIngredientAmount {
+    return _baseIngredientAmount
+        .map<String>((amount) => (amount * _currentNumber).toStringAsFixed(1))
+        .toList();
+  }
+
+  void increaseQuantity() {
+    _currentNumber++;
+    notifyListeners();
+  }
+
+  void decreaseQuantity() {
+    if (_currentNumber > 1) {
+      _currentNumber--;
+      notifyListeners();
+    }
+  }
+}
